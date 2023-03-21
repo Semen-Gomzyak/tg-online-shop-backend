@@ -1,4 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
+var LiqPay = require('liqpay');
 var liqpay = new LiqPay(public_key, private_key);
 const express = require('express')
 const cors = require('cors')
@@ -58,7 +59,25 @@ bot.on('message', async (msg) => {
 })
 app.post('/web-data', async (req, res) => {
     const { queryId, products, totalPrice } = req.body;
-    try {
+  try {
+      
+    liqpay.api(
+      'request',
+      {
+        public_key,
+        action: 'pay',
+        version: '3',
+        email: 'client-email@gmail.com',
+        amount: totalPrice,
+        currency: 'UAH',
+        order_id: 'order_id_1',
+        phone: '380950000001',
+        description: "test"
+      },
+      function (json) {
+        console.log(json.result);
+      },
+    );
         await bot.answerWebAppQuery(queryId, {
             type: 'article',
             id: queryId,
