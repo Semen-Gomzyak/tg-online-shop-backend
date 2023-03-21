@@ -66,7 +66,7 @@ app.post('/web-data', async (req, res) => {
         })
         return res.status(200).json({})
     } catch (error) {
-                await bot.answerWebAppQuery(queryId, {
+                await bot.answerWebAppQuery(queryId, { 
                   type: 'article',
                   id: queryId,
                   title: 'Не удалось приобрести товар',
