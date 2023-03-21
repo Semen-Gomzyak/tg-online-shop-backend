@@ -1,4 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
+var liqpay = new LiqPay(public_key, private_key);
 const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv');
