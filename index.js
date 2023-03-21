@@ -1,10 +1,11 @@
-const TelegramBot = require('node-telegram-bot-api');
-var LiqPay = require('liqpay');
-var liqpay = new LiqPay(public_key, private_key);
 const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv');
 dotenv.config(); 
+
+const TelegramBot = require('node-telegram-bot-api');
+var LiqPay = require('liqpay');
+var liqpay = new LiqPay(public_key, private_key);
 
 const { TOKEN, PORT } = process.env;
 const webAppUrl = 'https://tg-online-shop-fronend.vercel.app/';
