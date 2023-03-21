@@ -4,7 +4,7 @@ const cors = require('cors')
 const dotenv = require('dotenv');
 dotenv.config(); 
 
-const { TOKEN } = process.env;
+const { TOKEN, PORT } = process.env;
 const webAppUrl = 'https://tg-online-shop-fronend.vercel.app/';
 
 const bot = new TelegramBot(TOKEN, { polling: true });
@@ -79,6 +79,5 @@ app.post('/web-data', async (req, res) => {
         return res.status(500).json({})
     }
 })
-const PORT = 3000;
 
 app.listen(PORT, ()=> console.log('sever started on Port ' + PORT))
